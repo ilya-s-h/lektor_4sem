@@ -1,0 +1,48 @@
+<html>
+ <head>
+  <title>Лабораторная работа 7-8А.1</title><meta charset="utf-8">
+ </head>
+ <body>
+    <script>{
+        function makeCanvas(x, y) {
+          const canvas = document.createElement('canvas'),
+                ctx = canvas.getContext('2d');
+          canvas.setAttribute('width', x);
+          canvas.setAttribute('height', y);
+          return { canvas, ctx };
+        }
+        const { canvas, ctx } = makeCanvas(200, 200);
+        ctx.strokeStyle = 'Green';
+        ctx.setTransform(0, -1, 1, 0, 20, 188);
+        //И
+        ctx.beginPath();
+        ctx.moveTo(20, 20);
+        ctx.lineTo(20, 75);
+        ctx.lineTo(75, 20);
+        ctx.lineTo(75, 75);
+        ctx.stroke();
+        //Ш
+        ctx.beginPath();
+        ctx.moveTo(100, 20);
+        ctx.lineTo(100, 75);
+        ctx.lineTo(130, 75);
+        ctx.lineTo(130, 50);
+        ctx.moveTo(130, 75);
+        ctx.lineTo(160, 75);
+        ctx.lineTo(160, 20);
+        ctx.stroke();
+        //..
+        ctx.beginPath();
+        ctx.strokeRect(85, 85, 3, 3);
+        ctx.strokeRect(175, 85, 3, 3);
+        //Besie
+        ctx.beginPath();
+        ctx.strokeStyle = 'Black';
+        ctx.moveTo(20, 105);
+        ctx.quadraticCurveTo(85, 150, 168, 105);
+        ctx.stroke();
+        
+        document.body.style.backgroundImage = `url(${canvas.toDataURL()}`;
+    }</script>
+ </body>
+</html>
